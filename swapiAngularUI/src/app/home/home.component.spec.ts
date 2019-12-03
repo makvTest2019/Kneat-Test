@@ -9,7 +9,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ToastrModule } from 'ngx-toastr';
 import { StarShipsService } from '../services/starships.service';
 import { HttpClientModule } from '@angular/common/http';
-
+import { MockComponent } from 'ng-mocks';
 describe('HomeComponent', () => {
   let component: HomeComponent;
   let fixture: ComponentFixture<HomeComponent>;
@@ -17,7 +17,10 @@ describe('HomeComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [ FormsModule ,NgbModule,ToastrModule.forRoot(),HttpClientModule ],
-      declarations: [ HomeComponent, TopMenuComponent,InputDistanceComponent,  StapshipListComponent ],
+      declarations: [ HomeComponent, 
+        MockComponent(TopMenuComponent),
+        MockComponent(InputDistanceComponent),  
+        MockComponent(StapshipListComponent) ],
       providers:[StarShipsService]
     })
     .compileComponents();
